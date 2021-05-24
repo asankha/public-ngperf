@@ -1,0 +1,38 @@
+<form [formGroup]="formGroup">
+    <div class="form-subheading">
+        <mat-card-title class="asn-mat-card-title">
+            Details Child4
+        </mat-card-title>
+    </div>
+    <div formArrayName="c4">
+        <div fxLayout="row" fxLayoutGap="20px" *ngFor="let t of c4; let j=index" [formGroupName]="j">
+
+            <span>formGroupName = {{j}}</span>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header class="lin-panel-header">
+                    <mat-panel-title>
+                        Child 4
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill" fxFlex="30">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex="10">
+                    <mat-label>Age</mat-label>
+                    <input matInput formControlName="age">
+                </mat-form-field>
+                <mat-form-field appearance="fill" fxFlex="30">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address">
+                </mat-form-field>
+            </mat-expansion-panel>
+        </div>
+    </div>
+
+    <mat-card-actions>
+        <button type="button" mat-raised-button>
+            Add C4
+        </button>
+    </mat-card-actions>
+</form>

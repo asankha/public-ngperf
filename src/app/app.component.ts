@@ -18,6 +18,10 @@ export class AppComponent<T> implements AfterViewChecked, AfterContentChecked, A
         return fa.controls;
     }
 
+    ngDoCheck() {
+        console.count('ngDoCheck');
+    }
+
     ngAfterViewChecked() {
         console.count('ngAfterViewCheckedx');
     }

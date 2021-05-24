@@ -32,7 +32,8 @@ export class DataService implements OnInit {
         const detail = this.form.get('detail') as FormArray;
         detail.clear();
         let largestID = 0;
-        item.detail.forEach(li => {
+        for (let x = 0; x < item.detail.length; x++) {
+            const li = item.detail[x];
             largestID = Math.max(largestID, li.id);
             switch (li.type) {
                 case 'A': {
@@ -137,7 +138,7 @@ export class DataService implements OnInit {
                     break;
                 }
             }
-        });
+        }
         console.log('populateForm : ' + (Date.now() - start));
         this.form.patchValue(item);
         this.nextId = largestID + 1;
@@ -248,7 +249,7 @@ export class DataService implements OnInit {
     }
 
     obj = {name: 'Mickey Mouse', age: 5, address: 'USA'};
-    ten = [this.obj, ]; // this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, ];
+    ten = [this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, this.obj, ];
 
     private doc: IDoc = {
         name: 'My document', detail: [
